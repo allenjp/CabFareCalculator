@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html ng-app="fareApp">
+<head>
+    <title>Cab Fare Calculator</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- Bootstrap -->
+    <!-- jQuery_UI assets (used for datepicker)-->
+    <link rel="stylesheet" href="../assets/jQuery_UI/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../assets/jQuery_UI/jquery-ui.theme.css" />
+
+    <script src="../assets/jQuery_UI/jquery.js"></script>
+    <script src="../assets/jQuery_UI/jquery-ui.min.js"></script>
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../app/controllers/mainController.js"></script> <!-- load up our controller -->
+    <script src="../app/services/fareService.js"></script> <!-- load our fare service -->
+    <script src="../app/core.js"></script> <!-- load our main application -->
+
+
+</head>
+<body ng-controller="mainController">
+    <div class="container">
+        <div class="row">
+            <h1>Cab Fare Calculator</h1>
+
+            <div class="col-sm-3">
+                <!-- FORM TO CREATE FARES -->
+                <form>
+                    <div class="form-group">
+                        <label for="inputMinsAboveSix">Minutes above 6 MPH: </label>
+                        <input type="text" class="form-control numeric" id="inputMinsAboveSix" ng-model="formData.minsAbove6">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputMilesBelowSix">Miles below 6 MPH: </label>
+                        <input type="text" class="form-control numeric" id="inputMilesBelowSix" ng-model="formData.milesBelow6">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDate">Date: </label>
+                        <input type="text" class="form-control" id="inputDate" ng-model="formData.date">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTime">Time of Start of Ride: </label>
+                        <input type="text" class="form-control" id="inputTime" ng-model="formData.time">
+                    </div>
+                    <button type="submit" class="btn btn-primary" ng-click="createFare()">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
