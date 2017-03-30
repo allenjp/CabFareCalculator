@@ -25,11 +25,11 @@
 <body ng-controller="mainController">
     <div class="container">
         <div class="row">
-            <h1>Cab Fare Calculator</h1>
+            <h1 style="margin-bottom:40px;">Cab Fare Calculator</h1>
 
-            <div class="col-sm-3">
-                <!-- FORM TO CREATE FARES -->
-                <form>
+            <!-- FORM TO CREATE FARES -->
+            <div class="col-sm-3">              
+                <form class="form-horizontal">
                     <div class="form-group">
                         <label for="inputMinsAboveSix">Minutes above 6 MPH: </label>
                         <input type="text" class="form-control numeric" id="inputMinsAboveSix" ng-model="formData.minsAbove6">
@@ -43,13 +43,75 @@
                         <input type="text" class="form-control" id="inputDate" ng-model="formData.date">
                     </div>
                     <div class="form-group">
-                        <label for="inputTime">Time of Start of Ride: </label>
-                        <input type="text" class="form-control" id="inputTime" ng-model="formData.time">
+                        <label class="col-sm-12" for="inputTime">Time of Start of Ride: </label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="inputHour" ng-model="formData.hour">
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="inputMin" ng-model="formData.min">
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="inputAmPm" ng-model="formData.ampm">
+                                <option>AM</option>
+                                <option>PM</option>
+                            </select>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" ng-click="createFare()">Create</button>
+                    <button type="submit" class="btn btn-primary form-control" ng-click="createFare()">Create</button>
                 </form>
+            </div>
+
+            <!-- TABLE TO DISPLAY CREATED FARES -->
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Min above 6 MPH</th>
+                            <th>Miles below 6 MPH</th>
+                            <th>Date</th>
+                            <th>Start Time</th>
+                            <th>Total Fare</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="fare in fares">
+                            <td>{{ fare.minsAbove6 }}</td>
+                            <td>{{ fare.milesBelow6}}</td>
+                            <td>{{ fare.date }}</td>
+                            <td>{{ fare.hour }}:{{ fare.min }} {{ fare.ampm }}</td>
+                            <td>$4.20</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </body>
+
+<!-- Script to dynamically set up time inputs -->
+<script type="text/javascript">
+
+    hrSelect = document.getElementById('inputHour');
+    minSelect = document.getElementById('inputMin');
+
+    for (var i = 1; i <= 12; i++) {
+        hrSelect.options[i] = new Option(i, i);
+    }
+
+    for (var j = 0; j <= 59; j++) {
+        if (j < 10) {
+            var format_min = "0" + j;
+            minSelect.options[j] = new Option(format_min, format_min);
+        }
+        else {
+            minSelect.options[j] = new Option(j, j);
+        }
+        
+    }
+
+</script>
 </html>

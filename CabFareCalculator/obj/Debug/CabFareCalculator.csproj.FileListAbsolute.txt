@@ -12,3 +12,17 @@ C:\projects\CabFareCalculator\CabFareCalculator\bin\Newtonsoft.Json.xml
 C:\projects\CabFareCalculator\CabFareCalculator\bin\System.Net.Http.Formatting.xml
 C:\projects\CabFareCalculator\CabFareCalculator\bin\System.Web.Http.xml
 C:\projects\CabFareCalculator\CabFareCalculator\bin\System.Web.Http.WebHost.xml
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\CabFareCalculator.dll.config
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\CabFareCalculator.dll
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\CabFareCalculator.pdb
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\Newtonsoft.Json.dll
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\System.Net.Http.Formatting.dll
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\System.Web.Http.dll
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\System.Web.Http.WebHost.dll
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\Newtonsoft.Json.xml
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\System.Net.Http.Formatting.xml
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\System.Web.Http.xml
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\bin\System.Web.Http.WebHost.xml
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\obj\Debug\CabFareCalculator.dll
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\obj\Debug\CabFareCalculator.pdb
+C:\projects\CabFareApp\CabFareCalculator\CabFareCalculator\obj\Debug\CabFareCalculator.csprojResolveAssemblyReference.cache

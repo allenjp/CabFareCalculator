@@ -9,24 +9,23 @@ namespace CabFareCalculator.Core
 {
     public class FareController : ApiController
     {
-        // GET api/<controller>
-        [HttpGet]
-        public int Get()
-        {
-            return 1;
-        }
-
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<controller>
+        // POST api route
         [HttpPost]
-        public void Post(dynamic data)
+        public dynamic createFare(dynamic postData)
         {
-            Console.Write(data);
+            dynamic result = new System.Dynamic.ExpandoObject();
+
+            /*
+             * Can send the data to a db here if we wish
+             */ 
+
+            /*
+             * Perform price calculations here
+             */
+
+            result = postData;
+
+            return result;
         }
     }
 }
