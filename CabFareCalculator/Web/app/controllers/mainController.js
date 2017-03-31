@@ -22,7 +22,7 @@
             });
 
             $('select').each(function (i) {
-                if ($(this).val().trim() == "? undefined:undefined ?") {
+                if ($(this).val() == "") {
                     errors = true;
                     errorMessage = "Please fill out all fields";
                 }
@@ -34,22 +34,29 @@
                     errors = true;
                     errorMessage = "Minutes above 6 MPH and Miles below 6 MPH must both be numeric";
                 }
-            }
 
-            // if we have no validation errors proceed with passing the data to the api
-            if (!errors) {
-                // call the create function from our service (returns a promise object)
-                Fares.create($scope.formData)
+                else {
+                    // if we have no validation errors proceed with passing the data to the api
+                    // call the create function from our service (returns a promise object)
+                    Fares.create($scope.formData)
 
-                    // if successful creation, call our get function to get all the new fares
-                    .success(function (data) {
-                        $scope.formData = {}; // clear the form so our user is ready to enter another
-                        $scope.fares.push(data); // assign our new list of fares
-                        console.log($scope.fares);
-                    })
-                    .error(function (data) {
-                        console.log('Error: ' + data);
-                    });
+                        // if successful creation, call our get function to get all the new fares
+                        .success(function (data) {
+
+                            // make sure we didn't get an error
+                            if (data.status == 0) {
+                                alert(data.message);
+                            }
+                            else {
+                                $scope.formData = {}; // clear the form so our user is ready to enter another
+                                $scope.fares.push(data); // assign our new list of fares
+                                console.log($scope.fares);
+                            }             
+                        })
+                        .error(function (data) {
+                            console.log('Error: ' + data);
+                        });
+                }
             }
             else {
                 alert(errorMessage);

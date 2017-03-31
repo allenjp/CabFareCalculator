@@ -54,8 +54,6 @@
                         </div>
                         <div class="col-sm-4">
                             <select class="form-control" id="inputAmPm" ng-model="formData.ampm">
-                                <option>AM</option>
-                                <option>PM</option>
                             </select>
                         </div>
                     </div>
@@ -67,7 +65,7 @@
             <div class="col-sm-1"></div>
 
             <div class="col-sm-8">
-                <table class="table">
+                <table class="table" ng-show="fares">
                     <thead>
                         <tr>
                             <th>Min above 6 MPH</th>
@@ -80,10 +78,10 @@
                     <tbody>
                         <tr ng-repeat="fare in fares">
                             <td>{{ fare.minsAbove6 }}</td>
-                            <td>{{ fare.milesBelow6}}</td>
+                            <td>{{ fare.milesBelow6 }}</td>
                             <td>{{ fare.date }}</td>
                             <td>{{ fare.hour }}:{{ fare.min }} {{ fare.ampm }}</td>
-                            <td>$4.20</td>
+                            <td>${{ fare.cost }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -91,27 +89,4 @@
         </div>
     </div>
 </body>
-
-<!-- Script to dynamically set up time inputs -->
-<script type="text/javascript">
-
-    hrSelect = document.getElementById('inputHour');
-    minSelect = document.getElementById('inputMin');
-
-    for (var i = 1; i <= 12; i++) {
-        hrSelect.options[i] = new Option(i, i);
-    }
-
-    for (var j = 0; j <= 59; j++) {
-        if (j < 10) {
-            var format_min = "0" + j;
-            minSelect.options[j] = new Option(format_min, format_min);
-        }
-        else {
-            minSelect.options[j] = new Option(j, j);
-        }
-        
-    }
-
-</script>
 </html>
