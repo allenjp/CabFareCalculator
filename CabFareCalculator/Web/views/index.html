@@ -29,7 +29,7 @@
 
             <!-- FORM TO CREATE FARES -->
             <div class="col-sm-3">              
-                <form class="form-horizontal">
+                <form id="fare-form" class="form-horizontal">
                     <div class="form-group">
                         <label for="inputMinsAboveSix">Minutes above 6 MPH: </label>
                         <input type="text" class="form-control numeric" id="inputMinsAboveSix" ng-model="formData.minsAbove6">
@@ -59,32 +59,41 @@
                     </div>
                     <button type="submit" class="btn btn-primary form-control" ng-click="createFare()">Create</button>
                 </form>
+                <div class="jumbotron text-center">
+                    <h3 id="result-message">{{resultMessage}}</h3>
+                </div>
+
             </div>
 
             <!-- TABLE TO DISPLAY CREATED FARES -->
             <div class="col-sm-1"></div>
-
             <div class="col-sm-8">
-                <table class="table" ng-show="fares">
-                    <thead>
-                        <tr>
-                            <th>Min above 6 MPH</th>
-                            <th>Miles below 6 MPH</th>
-                            <th>Date</th>
-                            <th>Start Time</th>
-                            <th>Total Fare</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="fare in fares">
-                            <td>{{ fare.minsAbove6 }}</td>
-                            <td>{{ fare.milesBelow6 }}</td>
-                            <td>{{ fare.date }}</td>
-                            <td>{{ fare.hour }}:{{ fare.min }} {{ fare.ampm }}</td>
-                            <td>${{ fare.cost }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="no-fares-display" ng-hide="fares.length">
+                <h3>No saved fares to display</h3>
+                </div>
+                <div class="table-wrapper" ng-show="fares.length">
+                    <h3>Saved Fares</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Min above 6 MPH</th>
+                                <th>Miles below 6 MPH</th>
+                                <th>Date</th>
+                                <th>Start Time</th>
+                                <th>Total Fare</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="fare in fares">
+                                <td>{{ fare.minsAbove6 }}</td>
+                                <td>{{ fare.milesBelow6 }}</td>
+                                <td>{{ fare.date }}</td>
+                                <td>{{ fare.hour }}:{{ fare.min }} {{ fare.ampm }}</td>
+                                <td>${{ fare.cost }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
