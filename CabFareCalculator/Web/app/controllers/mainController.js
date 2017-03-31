@@ -37,28 +37,38 @@
                     displayMessage('text-danger', errorMessage);
                 }
                 else {
-                    // if we have no validation errors proceed with passing the data to the api
-                    // call the create function from our service (returns a promise object)
-                    Fares.create($scope.formData)
+                    // once we know they are numeric, make sure they are not negative
+                    if ($scope.formData.minsAbove6 < 0 || $scope.formData.milesBelow6 < 0) {
+                        errors = true;
+                        errorMessage = "Min. above 6 MPH and Miles below 6 MPH cannot be negative";
 
-                        // if successful creation, call our get function to get all the new fares
-                        .success(function (data) {
+                        displayMessage('text-danger', errorMessage);
+                    }
 
-                            // make sure we didn't get an error
-                            if (data.status == 0) {
-                                displayMessage('text-danger', data.message);
-                            }
-                            else {
-                                $scope.formData = {}; // clear the form so our user is ready to enter another
-                                $scope.fares.push(data); // assign our new list of fares
-                                
-                                var messageString = "Your total fare is: $" + data.cost;
-                                displayMessage('text-success', messageString);
-                            }             
-                        })
-                        .error(function (data) {
-                            console.log('Error: ' + data);
-                        });
+                    else {
+                        // if we have no validation errors proceed with passing the data to the api
+                        // call the create function from our service (returns a promise object)
+                        Fares.create($scope.formData)
+
+                            // if successful creation, call our get function to get all the new fares
+                            .success(function (data) {
+
+                                // make sure we didn't get an error
+                                if (data.status == 0) {
+                                    displayMessage('text-danger', data.message);
+                                }
+                                else {
+                                    $scope.formData = {}; // clear the form so our user is ready to enter another
+                                    $scope.fares.push(data); // assign our new list of fares
+
+                                    var messageString = "Your total fare is: $" + data.cost;
+                                    displayMessage('text-success', messageString);
+                                }
+                            })
+                            .error(function (data) {
+                                console.log('Error: ' + data);
+                            });
+                    }
                 }
             }
             else {

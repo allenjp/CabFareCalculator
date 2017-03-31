@@ -69,7 +69,7 @@ namespace CabFareCalculator.Core
             
         }
 
-        public double CalculatePrice(double miBelow6mph, int minAbove6mph, DateTime date, int hour, int minute, string ampm)
+        public static double CalculatePrice(double miBelow6mph, int minAbove6mph, DateTime date, int hour, int minute, string ampm)
         {
             /*
             The meter is required to be engaged or "hired" when a taxicab is occupied by anyone in addition to the driver
@@ -145,9 +145,7 @@ namespace CabFareCalculator.Core
             {
                 fareCost += 1;
             }
-
             return fareCost;
-
         }
 
         // method to round to nearest one-fifth; used for miBelow6mph param
