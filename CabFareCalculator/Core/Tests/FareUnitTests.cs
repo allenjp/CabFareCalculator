@@ -8,21 +8,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace CabFareCalculator.Core.Tests
 {
     [TestClass]
-    public class FareTests
+    public class FareUnitTests
     {
         [TestMethod]
         public void TestCalculatePrice()
         {
-            // arrange based on unit test provided in project outline
-            double testMiBelowSix = 2;
-            int testMinAboveSix = 5;
             DateTime testDate = DateTime.Parse("10/08/2010");
-            int testHour = 5;
-            int testMin = 30;
-            string testAmPm = "pm";
+            Fare testFare = new Fare(2, 5, testDate, 5, 30, "pm");
 
             // act
-            double actual = FareController.CalculatePrice(testMiBelowSix, testMinAboveSix, testDate, testHour, testMin, testAmPm);
+            double actual = testFare.CalculatePrice();
 
             // assert
             double expected = 9.75;
@@ -39,8 +34,8 @@ namespace CabFareCalculator.Core.Tests
             double rountTo2 = 0.3;
 
             // act
-            double actual = FareController.RoundUpToNearest(initial, roundTo);
-            double actual2 = FareController.RoundUpToNearest(initial, rountTo2);
+            double actual = Util.RoundUpToNearest(initial, roundTo);
+            double actual2 = Util.RoundUpToNearest(initial, rountTo2);
 
             // assert
             double expected = 106;
@@ -59,9 +54,9 @@ namespace CabFareCalculator.Core.Tests
             string initial3 = "5.52";
             
             // act
-            string actual = FareController.FormatAsMoney(initial);
-            string actual2 = FareController.FormatAsMoney(initial2);
-            string actual3 = FareController.FormatAsMoney(initial3);
+            string actual = Util.FormatAsMoney(initial);
+            string actual2 = Util.FormatAsMoney(initial2);
+            string actual3 = Util.FormatAsMoney(initial3);
 
             // assert
             string expected = "6.30";

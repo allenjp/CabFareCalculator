@@ -103,7 +103,10 @@
     <Compile Include="App_Start\FormatterConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Core\Controller\FareController.cs" />
-    <Compile Include="Core\Tests\FareTests.cs" />
+    <Compile Include="Core\Fare.cs" />
+    <Compile Include="Core\Tests\FareUnitTests.cs" />
+    <Compile Include="Core\Tests\FareControllerIntegrationTest.cs" />
+    <Compile Include="Core\Util.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
