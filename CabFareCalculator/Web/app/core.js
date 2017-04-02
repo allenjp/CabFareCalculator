@@ -5,7 +5,7 @@ $(document).ready(function () {
     // datepicker stuff
     $('#inputDate').datepicker();
 
-    // dynamically populate selects in form
+    // dynamically populate selects in form - do this because of weird bootstrap issue with dropdown
     hrSelect = document.getElementById('inputHour');
     minSelect = document.getElementById('inputMin');
     ampmSelect = document.getElementById('inputAmPm')

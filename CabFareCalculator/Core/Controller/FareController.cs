@@ -17,6 +17,7 @@ namespace CabFareCalculator.Core
          * And display them to the user
          * 
          * We could also add a delete api route to remove fares from the DB if we wish
+         * Similarly edit a saved fare
          */
 
         // POST api route

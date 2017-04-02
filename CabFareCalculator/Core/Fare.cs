@@ -6,6 +6,7 @@ using System.Web;
 
 namespace CabFareCalculator.Core
 {
+    // Fare class
     public class Fare
     {
         // fields

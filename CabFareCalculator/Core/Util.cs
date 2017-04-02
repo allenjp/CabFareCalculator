@@ -6,6 +6,7 @@ using System.Web;
 
 namespace CabFareCalculator.Core
 {
+    // class to house general purpose methods
     public class Util
     {
         // method to round to nearest one-fifth; used for miBelow6mph param
